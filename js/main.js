@@ -17,12 +17,20 @@ if (closeBtn && navMenu) {
 const articleConfig = {
   "maatschappelijk-belang": {
     title: "Maatschappelijk belang",
-    imageSrc: "assets/images/mockups/mockup-dekstop-safe.png",
+    imageSrc: "assets/images/placeholders/placeholder1.png",
+    imageAlt: "Banner van case maatschappelijk belang",
   },
   "testfase-bachelorproef": {
     title: "Testfase Bachelorproef",
-    imageSrc: "assets/images/mockups/mockup-dekstop-scenarios.png",
+    imageSrc: "assets/images/placeholders/placeholder2.png",
+    imageAlt: "Banner van case testfase bachelorproef",
   },
+};
+
+const defaultCaseHeader = {
+  title: "Case Study",
+  imageSrc: "assets/images/mockups/mockup-desktop-reflectie.png",
+  imageAlt: "Algemene case study banner",
 };
 
 function getSelectedArticleKey() {
@@ -45,11 +53,11 @@ function getSelectedArticleKey() {
     }
   }
 
-  return "maatschappelijk-belang";
+  return null;
 }
 
 function applyHeaderForArticle(articleKey) {
-  const config = articleConfig[articleKey];
+  const config = articleKey ? articleConfig[articleKey] : defaultCaseHeader;
 
   if (!config) {
     return;
@@ -64,24 +72,36 @@ function applyHeaderForArticle(articleKey) {
 
   if (headerImage) {
     headerImage.src = config.imageSrc;
+    headerImage.alt = config.imageAlt;
   }
 }
 
 function applyCaseDetailContent(articleKey) {
   const detailBlocks = document.querySelectorAll(".case-detail-content");
+  const emptyState = document.querySelector(".case-detail-empty");
 
   if (detailBlocks.length === 0) {
     return;
   }
 
+  let hasActiveBlock = false;
+
   detailBlocks.forEach((block) => {
-    const isActive = block.dataset.article === articleKey;
+    const isActive = articleKey && block.dataset.article === articleKey;
     block.hidden = !isActive;
+
+    if (isActive) {
+      hasActiveBlock = true;
+    }
   });
+
+  if (emptyState) {
+    emptyState.hidden = hasActiveBlock;
+  }
 
   const articleContainer = document.querySelector(".case-article");
 
-  if (articleContainer) {
+  if (articleContainer && hasActiveBlock) {
     articleContainer.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }

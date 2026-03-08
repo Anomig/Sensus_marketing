@@ -140,6 +140,11 @@
     margin: 0 auto;
 }
 
+.case-detail-empty {
+    padding: 1rem 0;
+    color: var(--color-text);
+}
+
 .case-section {
     margin-bottom: var(--space-32);
 }
