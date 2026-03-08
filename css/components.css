@@ -14,7 +14,7 @@
 }
 
 .nav-logo img {
-  height: 40px;
+  height: var(--space-40);
 }
 
 
@@ -26,7 +26,9 @@
 
 .nav-links a {
   color: var(--neutral-500);
+  font-size: var(--fs-base);
   font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
 }
 
 .nav-links a:hover {
@@ -41,7 +43,9 @@
   color: var(--neutral-100);
   padding: var(--space-8) var(--space-16);
   border-radius: var(--radius-full);
+  font-size: var(--fs-base);
   font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
 }
 
 .nav-links .btn-cta:hover {
@@ -55,7 +59,7 @@
 .hamburger {
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: var(--fs-2xl);
   cursor: pointer;
   color: var(--neutral-500);
 }
@@ -71,7 +75,7 @@
   display: block;
 
   position: absolute;
-  top: 70px;
+  top: var(--space-16);
   right: var(--space-24);
 
   background: var(--neutral-200);
@@ -79,7 +83,7 @@
   padding: var(--space-32);
   border-radius: var(--radius-xl);
 
-  width: 220px;
+  width: 200px;
 }
 
 
@@ -104,7 +108,7 @@
   background: none;
   border: none;
 
-  font-size: 1.2rem;
+  font-size: var(--fs-lg);
   cursor: pointer;
 
   color: var(--neutral-400);
