@@ -55,7 +55,6 @@
 
 /* Footer */
 .footer {
-	margin-top: var(--space-64);
 	padding: var(--space-40) var(--space-24) var(--space-24);
 	background: var(--blue-900);
 	border-top: 1px solid var(--color-border);
@@ -222,7 +221,8 @@ header img {
     align-items: center;
     justify-content: center;
     gap: var(--space-32);
-    margin: var(--space-64) 0;
+    padding: var(--space-64) 0;
+	background-color: var(--neutral-100);
 }
 
 #who-we-help .frame{
@@ -248,6 +248,80 @@ header img {
     color: var(--purple-600)
 }
 
+.section-block {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-96);
+	padding: var(--space-64) 20%;
+}
+
+.section-block .section-container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-16);
+	width: 620px;
+}
+
+.section-image {
+	background-size: cover;
+	background-position: center;
+	width: 342px;
+	height: 298px;	
+}
+
+#who-are-we .section-image {
+	background-image: url("../assets/images/mockups/vibe-1-people.png");
+}
+
+#importance {
+	background-color: var(--neutral-100);
+}
+
+#importance .section-image {
+	background-image: url("../assets/images/mockups/vibe-2-phone.png");
+}
+
+#contact {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-32);
+	padding: var(--space-64) 20%;
+}
+
+.required-message {
+	color: var(--error-600);
+	font-size: var(--fs-sm);
+}
+
+.required {
+	color: var(--error-600);
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-16);
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-8);
+}
+
+input, textarea {
+	padding: var(--space-12);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	font-size: var(--fs-base);
+	width: 25%;
+}
+
+form button {
+	width: 25%;
+}
 
 @media (min-width: 744px) {
 	.footer {
