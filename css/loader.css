@@ -1,0 +1,35 @@
+/* loader overlay */
+
+.loader-overlay{
+
+position:fixed;
+inset:0;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:var(--color-surface, white);
+
+z-index:9999;
+
+}
+
+/* grootte animatie */
+
+#lottie-loader{
+
+width:120px;
+height:120px;
+
+}
+
+/* animatie verdwijnen */
+
+.loader-hidden{
+
+opacity:0;
+pointer-events:none;
+transition:opacity 0.4s ease;
+
+}
