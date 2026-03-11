@@ -1,3 +1,145 @@
+/* navigatie ////////////////////////////////////////////////////// */
+
+.navbar {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-16) var(--space-24);
+  position: relative;
+}
+
+.nav-logo img {
+  height: var(--space-40);
+}
+
+
+/* navigatie links ////////////////////////////////////////////////////// */
+
+.nav-links {
+  display: none;
+}
+
+.nav-links a {
+  color: var(--neutral-500);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+
+/* CTA knop contact////////////////////////////////////////////////////// */
+
+.nav-links .btn-cta {
+  background: var(--purple-700);
+  color: var(--neutral-100);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+}
+
+.nav-links .btn-cta:hover {
+  background: var(--purple-800);
+  text-decoration: none;
+}
+
+
+/* hambuerger menu ////////////////////////////////////////////////////// */
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: var(--fs-2xl);
+  cursor: pointer;
+  color: var(--neutral-500);
+}
+
+
+/* mobiel menu ////////////////////////////////////////////////////// */
+
+.nav-menu {
+  display: none;
+}
+
+.nav-menu.active {
+  display: block;
+
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-24);
+
+  background: var(--neutral-200);
+
+  padding: var(--space-32);
+  border-radius: var(--radius-xl);
+
+  width: 200px;
+}
+
+
+/* mobiel menu links//////////////////////////////////////////////////// */
+
+.nav-menu.active .nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: var(--space-20);
+}
+
+
+/* close knop ////////////////////////////////////////////////////// */
+
+.menu-close {
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-16);
+
+  background: none;
+  border: none;
+
+  font-size: var(--fs-lg);
+  cursor: pointer;
+
+  color: var(--neutral-400);
+}
+
+
+/* desktop ////////////////////////////////////////////////////// */
+
+@media (min-width: 768px) {
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav-menu {
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: var(--space-32);
+  }
+
+  .menu-close {
+    display: none;
+  }
+
+}
+
 /* Buttons */
 .btn-primary,
 .btn-secondary {

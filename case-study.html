@@ -9,9 +9,71 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages/case-study.css">
+    <link rel="stylesheet" href="css/loader.css">
 </head>
 <body>
+<!-- Loader ///////////////////////////////////////////////////////////////////-->
+    <div class="loader-overlay" id="loader">
+        <div id="lottie-loader"></div>
+    </div>
+
+<!-- Navigation ////////////////////////////////////////////////////////////////// -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo/Logo-groot.png" alt="Logo">
+            </a>
+
+            <button class="hamburger">☰</button>
+
+            <nav class="nav-menu">
+
+            <button class="menu-close">✕</button>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="case-study.html">Cases</a></li>
+                <li><a href="#" class="btn-cta">Contact</a></li>
+            </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Hero Section///////////////////////////////////////////////////////// -->
+    <section class="cases-hero">
+        <h1>Case Studies</h1>
+    </section>
     
+    <section class="cases-container">
+        <article class="case-card">
+            <a href="case-study-detail.html?article=maatschappelijk-belang">
+                <img src="assets/images/placeholders/placeholder1.png" alt="foto van mensen die naast elkaar staan">
+
+                <div class="case-content">
+                    <h2>Maatschappelijk belang</h2>
+                    <p>SSG blijft een groot gespreksonderwerp, zelfs vandaag de dag.</p>
+                </div>
+            </a>
+        </article>
+        <article class="case-card reverse">
+            <a href="case-study-detail.html?article=testfase-bachelorproef">
+            <img src="assets/images/placeholders/placeholder2.png" alt="foto van een persoon achter een computer">
+            <div class="case-content">
+                <h2>Testfase Bachelorproef</h2>
+                <p>Van idee naar interactief prototype in 3 maanden.</p>
+            </div>
+            </a>
+        </article>
+    </section>
 </body>
+
+<!-- LOTTIE SCRIPT -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="js/loader.js"></script>
+
 <script src="js/main.js"></script>
 </html>

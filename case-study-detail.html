@@ -3,15 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Case detail</title>
     <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages/case-study.css">
+    <link rel="stylesheet" href="css/loader.css">
 </head>
 <body>
-    
+<!-- Loader ///////////////////////////////////////////////////////////////////-->
+    <div class="loader-overlay" id="loader">
+        <div id="lottie-loader"></div>
+    </div>
+
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo/Logo-groot.png" alt="Logo">
+            </a>
+
+            <button class="hamburger">☰</button>
+
+            <nav class="nav-menu">
+
+            <button class="menu-close">✕</button>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="case-study.html">Cases</a></li>
+                <li><a href="#" class="btn-cta">Contact</a></li>
+            </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+    <header class="case-hearder">
+        <img src="assets/images/mockups/mockup-desktop-reflectie.png" alt="Algemene case study banner">
+        <div class="case-header-overlay">
+            <h1>Case Study</h1>
+        </div>
+    </header>
+
+    <div class="case-article">
+        <a href="case-study.html" class="back-button">
+            ← terug
+        </a>
+
+        <div class="case-detail-empty" hidden>
+            <p>Kies een case op de overzichtspagina om het juiste artikel te bekijken.</p>
+        </div>
+
+        <article class="case-detail-content" data-article="maatschappelijk-belang">
+            <section class="case-section">
+                <h2>Introductie</h2>
+                <p>Seksueel grensoverschrijdend gedrag blijft een belangrijk maatschappelijk probleem.
+                    Onderzoek toont aan dat een groot deel van de jongeren ooit te maken krijgt met
+                    ongewenste seksuele opmerkingen, druk of handelingen.
+                    Tegelijk blijkt dat veel jongeren niet altijd goed weten hoe ze grenzen moeten herkennen,
+                    communiceren of respecteren.</p>
+            </section>
+
+            <blockquote class="case-quote">
+                "Jongeren ontvangen vaak tegenstrijdige signalen."
+            </blockquote>
+
+            <section class="case-section">
+                <h2>Sociale media</h2>
+                <p>Sensus wil bijdragen aan een cultuur waarin respect,
+                    communicatie en wederzijdse toestemming centraal staan.
+                    Door jongeren actief te laten nadenken over hun keuzes en de impact daarvan op anderen,
+                    willen we empathie en verantwoordelijkheid stimuleren.</p>
+                <br>
+                <p>In een wereld waarin sociale media, groepsdruk en verschillende verwachtingen rond
+                    relaties voortdurend aanwezig zijn, ontvangen jongeren vaak tegenstrijdige signalen
+                    over wat normaal of wenselijk gedrag is. Daardoor ontstaan misverstanden en situaties
+                    waarin grenzen onduidelijk worden.</p>
+            </section>
+        </article>
+
+        <article class="case-detail-content" data-article="testfase-bachelorproef" hidden>
+            <section class="case-section">
+                <h2>Prototype en Testfase</h2>
+                <p>In de bachelorproef werd in korte tijd een interactief prototype ontwikkeld om jongeren
+                    te helpen situaties beter te herkennen en daar bewust op te reageren.
+                    De testfase focuste op duidelijke scenario's, eenvoudige keuzes en begrijpelijke feedback.</p>
+            </section>
+
+            <blockquote class="case-quote">
+                "Van idee naar interactief prototype in 3 maanden."
+            </blockquote>
+
+            <section class="case-section">
+                <h2>Belangrijkste inzichten</h2>
+                <p>Uit de tests bleek dat jongeren het meest leren wanneer scenario's concreet en herkenbaar zijn.
+                    Door de combinatie van reflectievragen en visuele context werd de inhoud als toegankelijk en relevant ervaren.</p>
+                <br>
+                <p>Deze inzichten vormen de basis voor een volgende iteratie,
+                    met extra aandacht voor taalniveau, tempo en situaties die aansluiten bij het dagelijkse leven van jongeren.</p>
+            </section>
+        </article>
+    </div>
 </body>
+
+<!-- LOTTIE SCRIPT -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="js/loader.js"></script>
 <script src="js/main.js"></script>
 </html>
