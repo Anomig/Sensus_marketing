@@ -14,14 +14,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body id="top">
-    <nav></nav>
-    <header>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo/Logo-groot-black.png" alt="Logo">
+            </a>
+
+            <button class="hamburger">☰</button>
+
+            <nav class="nav-menu">
+
+            <button class="menu-close">✕</button>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="case-study.html">Cases</a></li>
+                <li><a href="#" class="btn-cta">Contact</a></li>
+            </ul>
+
+            </nav>
+
+        </div>
+    </header>
+    <header class="home-header">
         <div class="header-container">
             <h1>Sensus</h1>
             <p>Reflecteer. Begrijp. Respecteer.</p>
             <a href="features.html" class="btn-secondary">Test onze demo!</a>
         </div>
-        <img src="assets/images/mockups/mock-up-laptop.png" alt="">
+        <div id="header-img">
+            <img src="assets/images/mockups/mock-up-laptop.png" alt="">
+        </div>
     </header>
     <section id="who-we-help">
         <h2>Wij helpen</h2>
@@ -60,7 +85,7 @@
             <p>Seksueel grensoverschrijdend gedrag blijft een belangrijk maatschappelijk probleem. Onderzoek toont aan dat een groot deel van de jongeren ooit te maken krijgt met ongewenste seksuele opmerkingen, druk of handelingen. Tegelijk blijkt dat veel jongeren niet altijd goed weten hoe ze grenzen moeten herkennen, communiceren of respecteren.</p>
             <p>In een wereld waarin sociale media, groepsdruk en verschillende verwachtingen rond relaties voortdurend aanwezig zijn, ontvangen jongeren vaak tegenstrijdige signalen over wat normaal of wenselijk gedrag is. Daardoor ontstaan misverstanden en situaties waarin grenzen onduidelijk worden.</p>
             <p>
-Sensus wil bijdragen aan een cultuur waarin respect, communicatie en wederzijdse toestemming centraal staan. Door jongeren actief te laten nadenken over hun keuzes en de impact daarvan op anderen, willen we empathie en verantwoordelijkheid stimuleren.</p>
+            Sensus wil bijdragen aan een cultuur waarin respect, communicatie en wederzijdse toestemming centraal staan. Door jongeren actief te laten nadenken over hun keuzes en de impact daarvan op anderen, willen we empathie en verantwoordelijkheid stimuleren.</p>
             <a href="case-study.html" class="btn-primary">Leer meer</a>
         </div>
         <div class="section-image">
@@ -70,7 +95,7 @@ Sensus wil bijdragen aan een cultuur waarin respect, communicatie en wederzijdse
         <h2>Contact</h2>
         <p>Heb je interesse in Sensus of wil je meer weten over hoe de tool ingezet kan worden binnen jouw organisatie of school? Neem gerust contact met ons op.</p>
         <h3>Neem contact met ons op</h3>
-        <form action="#">
+        <form action="https://formsubmit.co/ps4simonvde04@gmail.com" method="post">
             <span class="required-message">Verplicht*</span>
             <div class="form-group">
                 <label for="first-name">Voornaam<span class="required">*</span></label>
