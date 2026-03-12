@@ -210,6 +210,24 @@ form button {
 	width: min(100%, 290px);
 }
 
+@media (max-width: 480px) {
+	.home-header {
+		padding: var(--space-40) var(--space-16);
+	}
+
+	.section-block {
+		padding: var(--space-40) var(--space-16);
+	}
+
+	#contact {
+		padding: var(--space-40) var(--space-16);
+	}
+
+	.home-header-logo-panel {
+		padding: var(--space-16);
+	}
+}
+
 @media (min-width: 744px) {
 	.home-header {
 		flex-direction: row;
