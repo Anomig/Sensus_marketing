@@ -157,12 +157,12 @@
 	padding: var(--space-24);
 	box-shadow: 0 8px 20px rgba(6, 70, 96, 0.08);
 	display: grid;
-	gap: var(--space-12);
+	gap: var(--space-16);
 }
 
 .feature-benefits-icon {
-	width: 40px;
-	height: 40px;
+	width: 36px;
+	height: 36px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
