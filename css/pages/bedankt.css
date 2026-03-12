@@ -1,0 +1,23 @@
+.thank-you-main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 60vh;
+	text-align: center;
+	padding: var(--space-32);
+}
+
+.thank-you-home-link {
+	margin-top: var(--space-32);
+	background-color: var(--color-primary);
+}
+
+.thank-you-home-link:hover {
+	background-color: var(--purple-700);
+}
+
+.thank-you-home-link:disabled,
+.thank-you-home-link[aria-disabled="true"] {
+	background-color: var(--purple-300);
+}

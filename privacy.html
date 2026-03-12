@@ -9,11 +9,16 @@
     <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/pages/privacy.css">
+    <link rel="stylesheet" href="css/loader.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="top">
+    <div class="loader-overlay" id="loader">
+        <div id="lottie-loader"></div>
+    </div>
+
         <header class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
@@ -27,11 +32,11 @@
             <button class="menu-close">✕</button>
 
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="case-study.html">Cases</a></li>
-                <li><a href="#" class="btn-cta">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#who-are-we">Over ons</a></li>
+                <li><a href="features.html">Functies</a></li>
+                <li><a href="case-study.html">Casus</a></li>
+                <li><a href="index.html#contact" class="btn-cta">Contact</a></li>
             </ul>
 
             </nav>
@@ -109,17 +114,17 @@ misbruik, neem dan contact op met onze klantenservice of via <a href="mailto:sen
                         <ul class="footer-social-list">
                             <li>
                                 <a class="footer-social-btn" href="#" aria-label="Instagram">
-                                    <img class="footer-social-icon" src="assets/icons/Insta_icon.png" alt="" aria-hidden="true">
+                                    <img class="footer-social-icon" src="assets/icons/Insta_icon.svg" alt="" aria-hidden="true">
                                 </a>
                             </li>
                             <li>
                                 <a class="footer-social-btn" href="#" aria-label="TikTok">
-                                    <img class="footer-social-icon" src="assets/icons/Tiktok_icon.png" alt="" aria-hidden="true">
+                                    <img class="footer-social-icon" src="assets/icons/Tiktok_icon.svg" alt="" aria-hidden="true">
                                 </a>
                             </li>
                             <li>
                                 <a class="footer-social-btn" href="#" aria-label="LinkedIn">
-                                    <img class="footer-social-icon" src="assets/icons/Linkedin_icon.png" alt="" aria-hidden="true">
+                                    <img class="footer-social-icon" src="assets/icons/Linkedin_icon.svg" alt="" aria-hidden="true">
                                 </a>
                             </li>
                         </ul>
@@ -129,15 +134,15 @@ misbruik, neem dan contact op met onze klantenservice of via <a href="mailto:sen
                 <nav class="footer-nav" aria-label="Footer navigation">
                     <ul class="footer-list">
                         <li><a class="footer-link" href="index.html">Home</a></li>
-                        <li><a class="footer-link" href="features.html">Features</a></li>
-                        <li><a class="footer-link" href="case-study.html">Case study</a></li>
-                        <li><a class="footer-link" href="#contact">Contact</a></li>
+                        <li><a class="footer-link" href="features.html">Functies</a></li>
+                        <li><a class="footer-link" href="case-study.html">Casus</a></li>
+                        <li><a class="footer-link" href="index.html#contact">Contact</a></li>
                     </ul>
                 </nav>
 
                 <div class="footer-contact">
                     <h4 class="footer-title">Heb je interesse?</h4>
-                    <a class="btn-secondary" href="#contact">Contacteer ons</a>
+                    <a class="btn-secondary" href="index.html#contact">Contacteer ons</a>
                 </div>
 
             </div>
@@ -149,5 +154,9 @@ misbruik, neem dan contact op met onze klantenservice of via <a href="mailto:sen
             </div>
         </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
