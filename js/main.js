@@ -133,8 +133,25 @@ if (carousel) {
 	const dots = Array.from(carousel.querySelectorAll('.feature-carousel-dot'));
 	const prevButton = carousel.querySelector('.feature-carousel-prev');
 	const nextButton = carousel.querySelector('.feature-carousel-next');
+  const slidesContainer = carousel.querySelector('.feature-carousel-slides');
 
 	let activeIndex = 0;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let pointerStartX = 0;
+  let pointerStartY = 0;
+  let isPointerDown = false;
+  const minSwipeDistance = 40;
+
+  const handleHorizontalGesture = (deltaX, deltaY) => {
+    if (Math.abs(deltaX) >= minSwipeDistance && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) {
+        showSlide(activeIndex + 1);
+      } else {
+        showSlide(activeIndex - 1);
+      }
+    }
+  };
 
 	const showSlide = (index) => {
 		activeIndex = (index + slides.length) % slides.length;
@@ -157,6 +174,55 @@ if (carousel) {
 	dots.forEach((dot, index) => {
 		dot.addEventListener('click', () => showSlide(index));
 	});
+
+  if (slidesContainer) {
+    slidesContainer.addEventListener('touchstart', (event) => {
+      const touch = event.changedTouches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+    }, { passive: true });
+
+    slidesContainer.addEventListener('touchend', (event) => {
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - touchStartX;
+      const deltaY = touch.clientY - touchStartY;
+
+      // Only trigger carousel navigation for intentional horizontal swipes.
+      handleHorizontalGesture(deltaX, deltaY);
+    }, { passive: true });
+
+    slidesContainer.addEventListener('mousedown', (event) => {
+      if (event.button !== 0) {
+        return;
+      }
+
+      isPointerDown = true;
+      pointerStartX = event.clientX;
+      pointerStartY = event.clientY;
+      event.preventDefault();
+    });
+
+    slidesContainer.addEventListener('dragstart', (event) => {
+      event.preventDefault();
+    });
+
+    window.addEventListener('mouseup', (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+
+      const deltaX = event.clientX - pointerStartX;
+      const deltaY = event.clientY - pointerStartY;
+
+      handleHorizontalGesture(deltaX, deltaY);
+
+      isPointerDown = false;
+    });
+
+    slidesContainer.addEventListener('mouseleave', () => {
+      isPointerDown = false;
+    });
+  }
 
 	showSlide(0);
 }
