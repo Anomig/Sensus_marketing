@@ -2,15 +2,18 @@
 
 /* Hero sectie /////////////////////////////////////////////////////////////////////// */
 .cases-hero {
-    text-align: center;
-    padding: 4rem 1rem;
-    background-color: var(--color-surface);
+    background-color: var(--neutral-200);
+    padding: var(--space-32) var(--space-24);
 }
 
-.cases-hero h1 {
-    font-size: var(--fs-3xl);
-    line-height: var(--lh-tighter);
-    color: var(--color-primary);
+.cases-hero-container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.cases-hero-title {
+    text-align: center;
+    color: var(--color-text-strong);
 }
 
 /* Cases container /////////////////////////////////////////////////////////////////////////*/
