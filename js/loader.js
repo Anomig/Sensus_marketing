@@ -1,22 +1,20 @@
-const loader = document.getElementById("loader")
+const loader = document.getElementById("loader");
+const lottieContainer = document.getElementById("lottie-loader");
 
-// Lottie animatie laden
-lottie.loadAnimation({
-  container: document.getElementById("lottie-loader"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "animations/loading.json"
-})
+if (loader && lottieContainer && typeof lottie !== "undefined") {
+  // Load the Lottie file from the correct path/casing.
+  lottie.loadAnimation({
+    container: lottieContainer,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "animations/Loading.json"
+  });
 
-
-// loader automatisch verbergen wanneer pagina geladen is
-window.addEventListener("load", () => {
-
-  setTimeout(() => {
-
-    loader.classList.add("loader-hidden")
-
-  }, 500)
-
-})
+  // Hide loader when page is loaded.
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      loader.classList.add("loader-hidden");
+    }, 500);
+  });
+}
