@@ -273,17 +273,26 @@
 /* CTA knop contact////////////////////////////////////////////////////// */
 
 .nav-links .btn-cta {
-  background: var(--purple-700);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--purple-600);
   color: var(--neutral-100);
-  padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-full);
+	padding: var(--space-16);
+	border: none;
+	border-radius: var(--radius-lg);
   font-size: var(--fs-base);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-normal);
+	font-weight: var(--fw-semibold);
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-links .btn-cta:hover {
-  background: var(--purple-800);
+	background: var(--purple-700);
+	color: var(--neutral-100);
   text-decoration: none;
 }
 
