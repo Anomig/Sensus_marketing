@@ -167,6 +167,176 @@
 	background-image: url("../../assets/images/mockups/vibe-2-phone.png");
 }
 
+.pricing-section {
+	padding: var(--space-80) var(--space-24);
+	background-color: var(--neutral-200);
+}
+
+.pricing-container {
+	max-width: 1080px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-20);
+	text-align: center;
+}
+
+#pricing-title {
+	font-size: clamp(2rem, 3vw, 2.55rem);
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+}
+
+.pricing-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	padding: var(--space-8) var(--space-16);
+	border: 1px solid var(--purple-300);
+	border-radius: var(--radius-full);
+	color: var(--purple-700);
+	background-color: var(--purple-100);
+	font-size: var(--fs-sm);
+	font-weight: var(--fw-semibold);
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+.pricing-intro {
+	max-width: 72ch;
+	color: var(--color-text);
+	line-height: 1.65;
+}
+
+.pricing-grid {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-24);
+	margin-top: var(--space-20);
+}
+
+.pricing-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	text-align: left;
+	gap: var(--space-12);
+	padding: 1.75rem;
+	background-color: #fffdfc;
+	border: 1px solid #e6e2df;
+	border-radius: 1.25rem;
+	box-shadow: 0 4px 14px rgba(6, 70, 96, 0.05);
+	transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pricing-card:hover {
+	border-color: #d9d5d2;
+	box-shadow: 0 12px 28px rgba(6, 70, 96, 0.12);
+	transform: translateY(-3px);
+}
+
+.pricing-card-featured {
+	background-color: #fdfbfc;
+	border-color: #decdd8;
+	box-shadow: 0 5px 16px rgba(165, 10, 126, 0.07);
+}
+
+.pricing-badge {
+	position: absolute;
+	top: var(--space-12);
+	right: var(--space-12);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.3rem 0.62rem;
+	border-radius: var(--radius-full);
+	background-color: #f2e6ee;
+	border: 1px solid #dfc9d8;
+	color: #7a3766;
+	font-size: 0.68rem;
+	font-weight: var(--fw-medium);
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+.pricing-card-label {
+	color: var(--blue-700);
+	font-size: 1.4rem;
+	line-height: 1.2;
+	padding-right: 5.5rem;
+	margin: 0;
+}
+
+.pricing-card-subtitle {
+	color: var(--color-text);
+	font-size: 0.95rem;
+	line-height: 1.55;
+	max-width: 45ch;
+	margin: 0 0 var(--space-8) 0;
+}
+
+.pricing-amount {
+	font-size: clamp(1.9rem, 2.8vw, 2.25rem);
+	line-height: 1.15;
+	font-weight: var(--fw-bold);
+	color: var(--color-text-strong);
+	letter-spacing: -0.01em;
+	margin: var(--space-16) 0 4px;
+}
+
+.pricing-period {
+	font-size: 0.82rem;
+	color: #5f7280;
+	font-weight: var(--fw-medium);
+	line-height: 1.45;
+	margin: 0 0 var(--space-8) 0;
+}
+
+.pricing-features {
+	display: grid;
+	gap: var(--space-8);
+	margin: 0;
+	width: 100%;
+}
+
+.pricing-features li {
+	position: relative;
+	padding-left: 1.2rem;
+	color: var(--color-text);
+	font-size: 0.95rem;
+	line-height: 1.6;
+	list-style: none;
+}
+
+.pricing-features li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.58rem;
+	width: 0.34rem;
+	height: 0.34rem;
+	border-radius: var(--radius-full);
+	background-color: var(--blue-500);
+}
+
+.pricing-note {
+	width: 100%;
+	max-width: 920px;
+	margin-top: var(--space-48);
+	padding: 0.9rem var(--space-16);
+	border-radius: var(--radius-lg);
+	border: 1px solid #dfe4e7;
+	background-color: #f8fafb;
+	color: #506570;
+	font-size: 0.9rem;
+	font-weight: var(--fw-normal);
+	line-height: 1.55;
+	text-align: center;
+}
+
 #contact {
 	display: flex;
 	flex-direction: column;
@@ -215,6 +385,24 @@ form button {
 		padding: var(--space-40) var(--space-16);
 	}
 
+	.pricing-section {
+		padding: var(--space-48) var(--space-16);
+	}
+
+	.pricing-card {
+		padding: var(--space-20);
+	}
+
+	.pricing-badge {
+		position: static;
+		align-self: flex-start;
+		margin-bottom: var(--space-4);
+	}
+
+	.pricing-card-label {
+		padding-right: 0;
+	}
+
 	.section-block {
 		padding: var(--space-40) var(--space-16);
 	}
@@ -229,6 +417,20 @@ form button {
 }
 
 @media (min-width: 744px) {
+	.pricing-section {
+		padding: var(--space-80) var(--space-40);
+	}
+
+	.pricing-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-items: stretch;
+		gap: var(--space-24);
+	}
+
+	.pricing-card {
+		min-height: 100%;
+	}
+
 	.home-header {
 		flex-direction: row;
 		align-items: flex-start;
@@ -266,6 +468,10 @@ form button {
 }
 
 @media (min-width: 1440px) {
+	.pricing-section {
+		padding: var(--space-96) 10%;
+	}
+
 	.section-block {
 		flex-direction: row;
 		padding: var(--space-64) 20%;
