@@ -22,7 +22,7 @@ const steps = [
       { sender: "user", text: "Gewoon aan het niksen, moet kunnen hahaha :)" },
       { sender: "other", text: "Hahha" }
     ],
-    options: ["Blijven sturen", "Stilte laten vallen"]
+    options: ["Ik stuur nog een bericht om het gesprek voort te zetten", "Stilte laten vallen"]
   }
 ];
 
@@ -94,7 +94,7 @@ function showStep(stepIndex) {
         if(currentStep < steps.length) {
           showStep(currentStep);
         } else {
-          showFeedback();
+          showCompletionStep();
         }
       };
       chatOptions.appendChild(btn);
@@ -102,18 +102,37 @@ function showStep(stepIndex) {
   }, delay);
 }
 
-// Feedback aan het einde
-function showFeedback() {
+// Extra stap voor het eindscherm
+function showCompletionStep() {
   chatOptions.innerHTML = '';
-  instructionDiv.textContent = "Feedback:";
-  let feedback = "";
-  steps.forEach((step, i) => {
-    feedback += `Stap ${i+1}: ${step.options[selections[i]] ? "✅" : "⚠️"}\n`;
-  });
-  const pre = document.createElement("pre");
-  pre.textContent = feedback;
-  pre.style.whiteSpace = "pre-wrap";
-  chatWindow.appendChild(pre);
+  instructionDiv.setAttribute("data-step-title", `Stap ${steps.length + 1}`);
+  instructionDiv.textContent = "Laatste stap";
+
+  const btn = document.createElement("button");
+  btn.textContent = "Scenario afronden";
+  btn.onclick = showEndScreen;
+  chatOptions.appendChild(btn);
+}
+
+// Eindscherm
+function showEndScreen() {
+  chatOptions.innerHTML = '';
+  instructionDiv.removeAttribute("data-step-title");
+  instructionDiv.textContent = "Je hebt het scenario afgerond!.";
+
+  chatWindow.innerHTML = '';
+  const endScreen = document.createElement("div");
+  endScreen.className = "end-screen";
+
+  const title = document.createElement("h2");
+  title.textContent = "Je hebt het scenario afgerond!.";
+
+  const message = document.createElement("p");
+  message.textContent = "Goed gedaan! je hebt scenario 1 succesvol afgerond. Bedankt voor je deelname.";
+
+  endScreen.appendChild(title);
+  endScreen.appendChild(message);
+  chatWindow.appendChild(endScreen);
   chatWindow.scrollTop = chatWindow.scrollHeight;
   restartBtn.style.display = "inline-block";
 }

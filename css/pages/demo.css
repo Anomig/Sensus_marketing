@@ -71,6 +71,24 @@ main {
   overflow-y: auto;
 }
 
+/* Eindscherm */
+.end-screen {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-24);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.end-screen h2 {
+  margin: 0 0 var(--space-8) 0;
+  color: var(--color-text-strong);
+}
+
+.end-screen p {
+  margin: 0;
+  color: var(--color-text);
+}
+
 /* Berichten */
 .chat-message {
   padding: 0.5rem 0.75rem;
