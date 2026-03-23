@@ -101,11 +101,11 @@
 }
 
 #who-we-help .frame {
-	display: grid;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
 	gap: var(--space-24);
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: auto;
-	min-width: 128px;
+	
 }
 
 .frame .card {
@@ -117,11 +117,7 @@
 	border: 1px solid var(--color-border);
 	border-radius: var(--radius-sm);
 	padding: var(--space-32);
-}
-
-.card img {
-	height: 64px;
-	color: var(--purple-600);
+	max-width: 300px;
 }
 
 .section-block {
@@ -289,7 +285,7 @@
 
 .pricing-period {
 	font-size: 0.82rem;
-	color: #5f7280;
+	color: var(--purple-600);
 	font-weight: var(--fw-medium);
 	line-height: 1.45;
 	margin: 0 0 var(--space-8) 0;
@@ -335,6 +331,13 @@
 	font-weight: var(--fw-normal);
 	line-height: 1.55;
 	text-align: center;
+}
+
+.pricing-tag {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 4px;
 }
 
 #contact {
@@ -494,5 +497,9 @@ form button {
 
 	#contact {
 		padding: var(--space-64) 20%;
+	}
+
+	#who-we-help .frame {
+		flex-direction: row;
 	}
 }
