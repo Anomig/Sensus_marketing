@@ -20,6 +20,7 @@
 	max-width: 720px;
 	z-index: 1;
 	min-width: 0;
+	justify-content: space-evenly;
 }
 
 .header-container h1 {
@@ -437,14 +438,14 @@ form button {
 	.home-header {
 		flex-direction: row;
 		align-items: flex-start;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		padding: var(--space-96) var(--space-40);
 	}
 
 	.home-header-visual {
 		display: flex;
 		justify-content: flex-end;
-		margin-left: auto;
+		
 	}
 
 	.frame .card {
@@ -482,6 +483,7 @@ form button {
 
 	.home-header {
 		align-items: flex-start;
+		justify-content: space-evenly;
 		padding: var(--space-64) 10% var(--space-64) 8%;
 	}
 
