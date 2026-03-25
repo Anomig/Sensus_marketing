@@ -1,7 +1,7 @@
 // Scenario stappen
 const steps = [
   {
-    instruction: "Eerste contact. Hoe voel je je bij dit korte antwoord?",
+    instruction: "Je krijgt een kort antwoord. Wat denk je dat dit betekent?",
     messages: [
       { sender: "user", text: "Hey, hoe gaat het?" },
       { sender: "other", text: "cv" }
@@ -9,15 +9,19 @@ const steps = [
     options: ["Enthousiast", "Neutraal", "Onzeker"]
   },
   {
-    instruction: "Eerste signaal van afstand. Hoe lees je dit?",
+    instruction: "Je merkt afstand in het gesprek. Hoe interpreteer je dit?",
     messages: [
       { sender: "user", text: "Wat ben je aan het doen?" },
       { sender: "other", text: "Bwa niets..." }
     ],
-    options: ["Ze is druk", "Ze is niet geïnteresseerd", "Geen idee"]
+    options: [
+      "Misschien is ze gewoon bezig",
+      "Ze heeft waarschijnlijk geen zin om te praten",
+      "Ik ben niet zeker"
+    ]
   },
   {
-    instruction: "Je eerste reactie. Wat doe je nu?",
+    instruction: "Wat doe je nu?",
     messages: [
       { sender: "user", text: "Gewoon aan het niksen, moet kunnen hahaha :)" },
       { sender: "other", text: "Hahha" }
@@ -29,123 +33,148 @@ const steps = [
 // State
 let currentStep = 0;
 let selections = [];
+let isTyping = false;
 
 // DOM
-const demoContainer = document.getElementById("demo-container");
 const instructionDiv = document.getElementById("instruction");
 const chatWindow = document.getElementById("chat-window");
 const chatOptions = document.getElementById("chat-options");
 const restartBtn = document.getElementById("chat-restart");
 const stopBtn = document.getElementById("chat-stop");
 
+restartBtn.className = "btn-primary";
+stopBtn.className = "btn-primary";
+
 // Chat bericht toevoegen
-function addMessage(text, sender, delay = 0) {
-  setTimeout(() => {
-    const div = document.createElement("div");
-    div.className = `chat-message ${sender === "user" ? "chat-user" : "chat-other"}`;
-    div.textContent = text;
-    chatWindow.appendChild(div);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-  }, delay);
-}
+function addMessage(text, sender) {
+  const div = document.createElement("div");
+  div.className = `chat-message ${sender === "user" ? "chat-user" : "chat-other"}`;
+  div.textContent = text;
 
-// Typing indicator
-function showTyping(text, callback) {
-  const typingDiv = document.createElement("div");
-  typingDiv.className = "chat-message chat-other typing";
-  typingDiv.innerHTML = `<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>`;
-  chatWindow.appendChild(typingDiv);
+  chatWindow.appendChild(div);
+
   chatWindow.scrollTop = chatWindow.scrollHeight;
-
-  setTimeout(() => {
-    typingDiv.remove();
-    addMessage(text, "other");
-    if(callback) callback();
-  }, 1200);
 }
 
-// Laat stap zien
-function showStep(stepIndex) {
+// Typing indicator (nu async/await → cleaner flow)
+function showTyping(text) {
+  return new Promise(resolve => {
+    isTyping = true;
+
+    const typingDiv = document.createElement("div");
+    typingDiv.className = "chat-message chat-other typing";
+    typingDiv.innerHTML = `
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    `;
+
+    chatWindow.appendChild(typingDiv);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    setTimeout(() => {
+      typingDiv.remove();
+      addMessage(text, "other");
+      isTyping = false;
+      resolve();
+    }, 1200);
+  });
+}
+
+// Laat stap zien (nu async)
+async function showStep(stepIndex) {
   chatOptions.innerHTML = '';
   instructionDiv.setAttribute("data-step-title", `Stap ${stepIndex + 1}`);
   instructionDiv.textContent = steps[stepIndex].instruction;
 
-  // Voeg berichten toe
-  let delay = 0;
-  steps[stepIndex].messages.forEach(msg => {
-    if(msg.sender === "other") {
-      showTyping(msg.text);
-      delay += 1400;
+  for (const msg of steps[stepIndex].messages) {
+    if (msg.sender === "other") {
+      await showTyping(msg.text);
     } else {
-      addMessage(msg.text, msg.sender, delay);
-      delay += 400;
+      addMessage(msg.text, "user");
+      await new Promise(r => setTimeout(r, 400));
     }
-  });
+  }
 
-  // Voeg keuzeknoppen toe na alle berichten
-  setTimeout(() => {
-    steps[stepIndex].options.forEach((opt, i) => {
-      const btn = document.createElement("button");
-      btn.textContent = opt;
-      btn.onclick = () => {
-        selections.push(i);
-        currentStep++;
-        chatOptions.innerHTML = '';
-        if(currentStep < steps.length) {
-          showStep(currentStep);
-        } else {
-          showCompletionStep();
-        }
-      };
-      chatOptions.appendChild(btn);
-    });
-  }, delay);
+  renderOptions(stepIndex);
 }
 
-// Extra stap voor het eindscherm
+function renderOptions(stepIndex) {
+  steps[stepIndex].options.forEach((opt, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+
+    btn.className = "btn-secondary";
+
+    btn.onclick = () => {
+      if (isTyping) return;
+
+      selections.push(i);
+      currentStep++;
+
+      chatOptions.innerHTML = '';
+
+      if (currentStep < steps.length) {
+        showStep(currentStep);
+      } else {
+        showCompletionStep();
+      }
+    };
+
+    chatOptions.appendChild(btn);
+  });
+}
+
+// Completion stap
 function showCompletionStep() {
   chatOptions.innerHTML = '';
+
   instructionDiv.setAttribute("data-step-title", `Stap ${steps.length + 1}`);
-  instructionDiv.textContent = "Laatste stap";
+  instructionDiv.textContent = "Klaar om af te ronden?";
 
   const btn = document.createElement("button");
-  btn.textContent = "Scenario afronden";
+  btn.textContent = "Bekijk resultaat";
+  btn.className = "btn-primary";
   btn.onclick = showEndScreen;
+
   chatOptions.appendChild(btn);
 }
 
-// Eindscherm
+// Eindscherm (belangrijk voor marketing!)
 function showEndScreen() {
   chatOptions.innerHTML = '';
   instructionDiv.removeAttribute("data-step-title");
-  instructionDiv.textContent = "Je hebt het scenario afgerond!.";
+  instructionDiv.textContent = "Reflectie";
 
   chatWindow.innerHTML = '';
+
   const endScreen = document.createElement("div");
   endScreen.className = "end-screen";
 
-  const title = document.createElement("h2");
-  title.textContent = "Je hebt het scenario afgerond!.";
+  endScreen.innerHTML = `
+    <h2>Van ervaring naar inzicht</h2>
+    <p>
+      In dit scenario zag je hoe kleine signalen en interpretaties een gesprek kunnen beïnvloeden.
+    </p>
+    <p>
+      Sensus helpt leerlingen om deze situaties bewust te herkennen,
+      stil te staan bij hun keuzes en respectvol te communiceren.
+    </p>
+  `;
 
-  const message = document.createElement("p");
-  message.textContent = "Goed gedaan! je hebt scenario 1 succesvol afgerond. Bedankt voor je deelname.";
-
-  endScreen.appendChild(title);
-  endScreen.appendChild(message);
   chatWindow.appendChild(endScreen);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-  restartBtn.style.display = "inline-block";
+  restartBtn.style.display = "block";
 }
 
-// Stop knop
+// Stop
 stopBtn.onclick = () => {
   chatWindow.innerHTML = "<p>Scenario gestopt.</p>";
   chatOptions.innerHTML = "";
   instructionDiv.innerHTML = "";
-  restartBtn.style.display = "inline-block";
+  restartBtn.style.display = "block";
 };
 
-// Restart knop
+// Restart
 restartBtn.onclick = () => {
   currentStep = 0;
   selections = [];
@@ -156,5 +185,5 @@ restartBtn.onclick = () => {
   showStep(currentStep);
 };
 
-// Start demo
+// Start
 showStep(currentStep);

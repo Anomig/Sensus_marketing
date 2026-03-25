@@ -1,135 +1,158 @@
-/* Algemeen layout */
-body, html {
+/* =========================
+   BASE LAYOUT
+   ========================= */
+
+html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat", Arial, sans-serif;
-  background: var(--color-background);
   display: flex;
   flex-direction: column;
 }
 
-/* Header */
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+  padding: var(--space-64) var(--space-24);
+  padding-bottom: var(--space-24);
+}
+
+
+/* =========================
+   NAVBAR FIX
+   ========================= */
+
 .navbar {
   position: relative;
   z-index: 10;
 }
 
-/* Main content zodat footer onderaan komt */
-main {
-  flex: 1 0 auto;
+
+/* =========================
+   INTRO
+   ========================= */
+
+.demo-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-top: var(--space-24);
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: var(--space-64) var(--space-16);
-  gap: var(--space-32);
+  gap: var(--space-16);
 }
 
-/* Scenario sectie */
-#scenario-section {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* Interactieve sectie */
-#interaction-section {
-  width: min(100%, 500px);
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-/* Instruction / vraag */
-#instruction {
-  background: var(--color-surface);
-  padding: var(--space-16);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-16);
-  font-weight: var(--fw-semibold);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-/* Stap titel boven instructie */
-#instruction::before {
-  content: attr(data-step-title);
-  display: block;
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-lg);
-  margin-bottom: var(--space-8);
+.demo-intro h1 {
   color: var(--color-text-strong);
 }
 
-/* Chat window */
-#chat-window {
-  min-height: 400px;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  overflow-y: auto;
-}
-
-/* Eindscherm */
-.end-screen {
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
-  padding: var(--space-24);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.end-screen h2 {
-  margin: 0 0 var(--space-8) 0;
-  color: var(--color-text-strong);
-}
-
-.end-screen p {
-  margin: 0;
+.demo-intro p {
   color: var(--color-text);
 }
 
-/* Berichten */
-.chat-message {
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-md);
-  max-width: 80%;
-  word-wrap: break-word;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
+
+/* =========================
+   SCENARIO
+   ========================= */
+
+#scenario-section {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
 }
 
-/* Gebruiker */
+
+/* =========================
+   INSTRUCTION
+   ========================= */
+
+#instruction {
+  background: var(--neutral-100);
+  padding: var(--space-16);
+  border-radius: var(--radius-lg);
+  font-weight: var(--fw-semibold);
+  border-left: 4px solid var(--color-primary);
+}
+
+#instruction::before {
+  content: attr(data-step-title);
+  display: block;
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+
+/* =========================
+   CHAT WINDOW
+   ========================= */
+
+#chat-window {
+  height: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  overflow-y: auto;
+
+  background: var(--neutral-200);
+  border-radius: var(--radius-lg);
+}
+
+
+/* =========================
+   CHAT BUBBLES
+   ========================= */
+
+.chat-message {
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-lg);
+  max-width: 80%;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* gebruiker */
 .chat-user {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
+  background: var(--blue-600);
+  color: var(--neutral-100);
   align-self: flex-end;
 }
 
-/* Andere persoon */
+/* andere */
 .chat-other {
-  background: var(--color-surface-soft); /* lichtgrijs */
+  background: var(--neutral-100);
   color: var(--color-text-strong);
   align-self: flex-start;
+  border: 1px solid var(--color-border);
 }
 
-/* Fade-in animatie */
 @keyframes fadeIn {
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Typing indicator */
+
+/* =========================
+   TYPING INDICATOR
+   ========================= */
+
 .typing {
   display: flex;
-  gap: 0.25rem;
-  align-items: center;
+  gap: var(--space-4);
 }
 
 .typing-dot {
   width: 6px;
   height: 6px;
-  background: var(--color-secondary);
-  border-radius: 50%;
+  background: var(--neutral-500);
+  border-radius: var(--radius-full);
   animation: blink 1s infinite;
 }
 
@@ -141,43 +164,111 @@ main {
   40% { opacity: 1; }
 }
 
-/* Opties knoppen (onder elkaar) */
+
+/* =========================
+   INTERACTION
+   ========================= */
+
+#interaction-section {
+  width: min(100%, 520px);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+
+  margin-top: var(--space-16); 
+}
+
+#chat-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8); 
+}
+
+
+/* opties → gebruik secondary stijl */
 #chat-options button {
-  display: block;
   width: 100%;
-  margin: var(--space-8) 0 0 0;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: var(--radius-md);
-  background: var(--color-secondary);
-  color: var(--color-text-inverse);
-  cursor: pointer;
 }
 
-#chat-options button:hover {
-  opacity: 0.85;
-}
 
-/* Stop & restart knop */
-#chat-stop, #chat-restart {
+/* stop/restart → primary stijl */
+#chat-stop,
+#chat-restart {
   width: 100%;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: var(--radius-md);
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  cursor: pointer;
-  margin-top: var(--space-8);
 }
 
-/* Footer onderaan */
-footer.footer {
-  flex-shrink: 0;
+
+/* =========================
+   EINDSCHERM
+   ========================= */
+
+.end-screen {
+  background: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  box-shadow: 0 8px 20px rgba(6, 70, 96, 0.08);
 }
 
-/* Centraal op grotere schermen */
+.end-screen h2 {
+  color: var(--color-text-strong);
+}
+
+.end-screen p {
+  color: var(--color-text);
+}
+
+
+/* =========================
+   CTA SECTIE
+   ========================= */
+
+.demo-cta {
+  max-width: 720px;
+  margin: var(--space-64) auto;
+  margin-bottom: var(--space-64);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.demo-cta h2 {
+  color: var(--color-text-strong);
+}
+
+.demo-cta p {
+  color: var(--color-text);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
 @media (min-width: 768px) {
+
   main {
     align-items: center;
   }
+
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
+
+
