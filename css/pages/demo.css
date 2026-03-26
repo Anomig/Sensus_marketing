@@ -1,0 +1,274 @@
+/* =========================
+   BASE LAYOUT
+   ========================= */
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+  padding: var(--space-64) var(--space-24);
+  padding-bottom: var(--space-24);
+}
+
+
+/* =========================
+   NAVBAR FIX
+   ========================= */
+
+.navbar {
+  position: relative;
+  z-index: 10;
+}
+
+
+/* =========================
+   INTRO
+   ========================= */
+
+.demo-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-top: var(--space-24);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.demo-intro h1 {
+  color: var(--color-text-strong);
+}
+
+.demo-intro p {
+  color: var(--color-text);
+}
+
+
+/* =========================
+   SCENARIO
+   ========================= */
+
+#scenario-section {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+
+/* =========================
+   INSTRUCTION
+   ========================= */
+
+#instruction {
+  background: var(--neutral-100);
+  padding: var(--space-16);
+  border-radius: var(--radius-lg);
+  font-weight: var(--fw-semibold);
+  border-left: 4px solid var(--color-primary);
+}
+
+#instruction::before {
+  content: attr(data-step-title);
+  display: block;
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+
+/* =========================
+   CHAT WINDOW
+   ========================= */
+
+#chat-window {
+  height: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  overflow-y: auto;
+
+  background: var(--neutral-200);
+  border-radius: var(--radius-lg);
+}
+
+
+/* =========================
+   CHAT BUBBLES
+   ========================= */
+
+.chat-message {
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-lg);
+  max-width: 80%;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* gebruiker */
+.chat-user {
+  background: var(--blue-600);
+  color: var(--neutral-100);
+  align-self: flex-end;
+}
+
+/* andere */
+.chat-other {
+  background: var(--neutral-100);
+  color: var(--color-text-strong);
+  align-self: flex-start;
+  border: 1px solid var(--color-border);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================
+   TYPING INDICATOR
+   ========================= */
+
+.typing {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--neutral-500);
+  border-radius: var(--radius-full);
+  animation: blink 1s infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+
+/* =========================
+   INTERACTION
+   ========================= */
+
+#interaction-section {
+  width: min(100%, 520px);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+
+  margin-top: var(--space-16); 
+}
+
+#chat-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8); 
+}
+
+
+/* opties → gebruik secondary stijl */
+#chat-options button {
+  width: 100%;
+}
+
+
+/* stop/restart → primary stijl */
+#chat-stop,
+#chat-restart {
+  width: 100%;
+}
+
+
+/* =========================
+   EINDSCHERM
+   ========================= */
+
+.end-screen {
+  background: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  box-shadow: 0 8px 20px rgba(6, 70, 96, 0.08);
+}
+
+.end-screen h2 {
+  color: var(--color-text-strong);
+}
+
+.end-screen p {
+  color: var(--color-text);
+}
+
+
+/* =========================
+   CTA SECTIE
+   ========================= */
+
+.demo-cta {
+  max-width: 720px;
+  margin: var(--space-64) auto;
+  margin-bottom: var(--space-64);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.demo-cta h2 {
+  color: var(--color-text-strong);
+}
+
+.demo-cta p {
+  color: var(--color-text);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (min-width: 768px) {
+
+  main {
+    align-items: center;
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+
