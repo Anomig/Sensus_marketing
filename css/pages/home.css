@@ -131,7 +131,7 @@
 	background-color: var(--neutral-100);
 }
 
-.frame .card h5 {
+.frame .card h3 {
 	color: var(--purple-600);
 	text-align: left;
 	width: 100%;
