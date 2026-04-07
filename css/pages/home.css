@@ -55,12 +55,21 @@
 	font-size: var(--fs-lg);
 }
 
+.home-header-break-baar {
+	display: inline;
+}
+
+.home-header-break-hyphen {
+	display: none;
+}
+
 .home-header-cta {
 	width: min(100%, 290px);
 }
 
 .home-header-visual {
-	min-width: 300px;
+	width: min(100%, 300px);
+	min-width: 0;
 	position: relative;
 	line-height: 0;
 }
@@ -429,6 +438,16 @@ form button {
 	align-items: center;
 	justify-content: center;
 	gap: var(--space-8);
+}
+
+@media (max-width: 399px) {
+	.home-header-break-hyphen {
+		display: inline;
+	}
+
+	.home-header-break-baar {
+		display: block;
+	}
 }
 
 @media (max-width: 480px) {
