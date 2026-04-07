@@ -31,22 +31,7 @@
 
 .header-container h1 {
 	color: var(--neutral-100);
-	max-width: 500px;
-}
-
-.home-header-eyebrow {
-	display: inline-flex;
-	align-items: center;
-	width: fit-content;
-	padding: var(--space-8) var(--space-16);
-	border: 1px solid var(--blue-300);
-	border-radius: var(--radius-full);
-	background-color: var(--blue-800);
-	color: var(--neutral-100);
-	font-size: var(--fs-sm);
-	font-weight: var(--fw-semibold);
-	letter-spacing: 0.02em;
-	text-transform: uppercase;
+	max-width: 700px;
 }
 
 .home-header-lead {
@@ -116,7 +101,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: var(--space-32);
-	padding: var(--space-64) 0;
+	padding: var(--space-64) var(--space-24);
 	background-color: var(--neutral-200);
 }
 
@@ -124,7 +109,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	gap: var(--space-24);
+	gap: var(--space-80);
 	
 }
 
@@ -154,7 +139,7 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: var(--space-64);
-	padding: var(--space-64) 10%;
+	padding: var(--space-64) var(--space-24);
 }
 
 .section-block .section-container {
@@ -166,7 +151,8 @@
 }
 
 .section-block .btn-primary,
-.section-block .btn-secondary {
+.section-block .btn-secondary,
+.how-it-works .btn-primary {
 	width: min(100%, 290px);
 }
 
@@ -178,6 +164,71 @@
 	width: 100%;
 	height: 100%;
 }
+
+.how-it-works {
+	padding: var(--space-64) var(--space-24);
+	background-color: var(--neutral-100);
+}
+
+.how-it-works__container {
+	margin: 0 auto;
+}
+
+.how-it-works__header {
+	max-width: 44rem;
+	margin-bottom: var(--space-32);
+}
+
+.how-it-works__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-20);
+}
+
+.how-it-works__card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-12);
+	padding: var(--space-24);
+	border: 1px solid rgba(2, 40, 55, 0.08);
+	border-radius: 1.25rem;
+	background: #ffffff;
+	box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+	transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.how-it-works__card:hover {
+	transform: translateY(-4px);
+	border-color: rgba(2, 40, 55, 0.14);
+	box-shadow: 0 18px 36px rgba(16, 24, 40, 0.1);
+}
+
+.how-it-works__number {
+	display: inline-block;
+	font-size: 1.05rem;
+	font-weight: var(--fw-bold);
+	letter-spacing: 0.06em;
+	line-height: 1;
+	color: var(--blue-700);
+}
+
+.how-it-works__title {
+	margin: 0;
+	font-size: 1.1rem;
+	line-height: 1.3;
+}
+
+.how-it-works__text {
+	margin: 0;
+	color: var(--color-text);
+	line-height: 1.65;
+}
+
+.how-it-works__cta {
+	margin-top: var(--space-24);
+}
+
+
 
 #who-are-we {
 	background-color: var(--neutral-100);
@@ -209,26 +260,6 @@
 	align-items: center;
 	gap: var(--space-20);
 	text-align: center;
-}
-
-#pricing-title {
-	font-size: clamp(2rem, 3vw, 2.55rem);
-	line-height: 1.15;
-	letter-spacing: -0.01em;
-}
-
-.pricing-eyebrow {
-	display: inline-flex;
-	align-items: center;
-	padding: var(--space-8) var(--space-16);
-	border: 1px solid var(--purple-300);
-	border-radius: var(--radius-full);
-	color: var(--purple-700);
-	background-color: var(--purple-100);
-	font-size: var(--fs-sm);
-	font-weight: var(--fw-semibold);
-	letter-spacing: 0.03em;
-	text-transform: uppercase;
 }
 
 .pricing-intro {
@@ -382,7 +413,7 @@
 	align-items: top;
 	justify-content: space-between;
 	gap: var(--space-32);
-	padding: var(--space-64) 10%;
+	padding: var(--space-64) var(--space-24);
 	background-color: var(--neutral-100);
 }
 
@@ -477,6 +508,10 @@ form button {
 		padding: var(--space-40) var(--space-16);
 	}
 
+	.how-it-works {
+		padding: var(--space-48) var(--space-16);
+	}
+
 	#contact {
 		padding: var(--space-40) var(--space-16);
 	}
@@ -488,7 +523,7 @@ form button {
 
 @media (min-width: 744px) {
 	.pricing-section {
-		padding: var(--space-80) var(--space-40);
+		padding: var(--space-80) var(--space-40) var(--space-24) var(--space-40);
 	}
 
 	.pricing-grid {
@@ -512,6 +547,19 @@ form button {
 		display: flex;
 		justify-content: flex-end;
 		min-width: 400px;
+	}
+
+	#who-we-help,
+	.section-block,
+	.how-it-works,
+	.pricing-section,
+	#contact {
+		padding-left: clamp(var(--space-40), 5vw, 200px);
+		padding-right: clamp(var(--space-40), 5vw, 200px);
+	}
+
+	.how-it-works__grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 
 	.frame .card {
@@ -546,12 +594,16 @@ form button {
 
 @media (min-width: 1440px) {
 	.pricing-section {
-		padding: var(--space-96) 10%;
+		padding: var(--space-96) 200px var(--space-24) 200px;
+	}
+
+	.how-it-works {
+		padding: var(--space-80) 200px;
 	}
 
 	.section-block {
 		flex-direction: row;
-		padding: var(--space-64) 10%;
+		padding: var(--space-64) 200px;
 	}
 
 	.home-header {
@@ -572,7 +624,12 @@ form button {
 	}
 
 	#contact {
-		padding: var(--space-64) 10%;
+		padding: var(--space-64) 200px;
+	}
+
+	#who-we-help {
+		padding-left: 200px;
+		padding-right: 200px;
 	}
 
 	#who-we-help .frame {
