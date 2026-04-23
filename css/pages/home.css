@@ -109,8 +109,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	gap: var(--space-80);
-	
+	gap: var(--space-32);
+	justify-content: space-between;
 }
 
 .frame .card {
@@ -634,5 +634,10 @@ form button {
 
 	#who-we-help .frame {
 		flex-direction: row;
+
+	}
+
+	.frame .card {
+		width: 19vw;
 	}
 }
