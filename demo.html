@@ -88,21 +88,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1>Ervaar Sensus in actie</h1>
     <p>
       Dit is een verkorte demo van een interactief scenario dat wordt doorlopen.
-      Het maken keuzes, interpreteren avn signalen en ontdekken hoe gedrag invloed heeft op anderen.
+      Het maken van keuzes, interpreteren van signalen en ontdekken hoe gedrag invloed heeft op anderen.
     </p>
     </section>
-<main>
-  <!-- Scenario sectie -->
-  <section id="scenario-section">
-    <div id="instruction"></div>
-    <div id="chat-window"></div>
-  </section>
+<main class="demo-stage">
+  <section class="device-shell" aria-label="Demo simulatie van een mobiele app">
+    <div class="device-frame">
+      <div class="device-topbar" aria-hidden="true">
+        <span class="device-camera"></span>
+        <span class="device-activity"></span>
+      </div>
 
-  <!-- Interactieve sectie -->
-  <section id="interaction-section">
-    <div id="chat-options"></div>
-    <button id="chat-stop">Stop</button>
-    <button id="chat-restart">Opnieuw proberen</button>
+      <div class="device-screen">
+        <!-- Scenario sectie -->
+        <section id="scenario-section">
+          <div id="instruction"></div>
+          <div id="chat-window"></div>
+        </section>
+
+        <!-- Interactieve sectie -->
+        <section id="interaction-section">
+          <div id="chat-options"></div>
+          <button id="chat-stop">Stop</button>
+          <button id="chat-restart">Opnieuw proberen</button>
+        </section>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -118,6 +129,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="index.html" class="btn-secondary">Terug naar website</a>
   </div>
 </section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/logo/Logo-groot-white.png" alt="Sensus logo">
+        <p class="footer-text">Een veilige en interactieve tool rond consent voor jongeren.</p>
+
+        <div class="footer-social">
+          <ul class="footer-social-list">
+            <li>
+              <a class="footer-social-btn" href="https://www.instagram.com/sensus.app" aria-label="Instagram">
+                <img class="footer-social-icon" src="assets/icons/Insta_icon.svg" alt="" aria-hidden="true">
+              </a>
+            </li>
+            <li>
+              <a class="footer-social-btn" href="https://www.linkedin.com/in/sensus-app-7101463b7" aria-label="LinkedIn">
+                <img class="footer-social-icon" src="assets/icons/Linkedin_icon.svg" alt="" aria-hidden="true">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-list">
+          <li><a class="footer-link" href="index.html">Home</a></li>
+          <li><a class="footer-link" href="features.html">Functies</a></li>
+          <li><a class="footer-link" href="case-study.html">Casus</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <p class="footer-title">Heb je interesse?</p>
+        <a class="btn-secondary" href="#contact">Contacteer ons</a>
+      </div>
+
+    </div>
+
+    <div class="footer-meta">
+      <p class="footer-copyright">&copy; 2026 Sensus</p>
+      <a class="footer-top-link" href="privacy.html">Privacy</a>
+      <a class="footer-top-link" href="#top">Terug naar top</a>
+    </div>
+  </div>
+</footer>
 
   <!-- Scripts -->
   <script src="js/demo.js"></script>

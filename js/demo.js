@@ -146,6 +146,8 @@ function showEndScreen() {
   instructionDiv.removeAttribute("data-step-title");
   instructionDiv.textContent = "Reflectie";
 
+  // ensure the chat window can expand to show the full end screen
+  chatWindow.classList.add('end-mode');
   chatWindow.innerHTML = '';
 
   const endScreen = document.createElement("div");
@@ -163,6 +165,7 @@ function showEndScreen() {
   `;
 
   chatWindow.appendChild(endScreen);
+  chatWindow.scrollTop = 0;
   restartBtn.style.display = "block";
 }
 
@@ -171,6 +174,8 @@ stopBtn.onclick = () => {
   chatWindow.innerHTML = "<p>Scenario gestopt.</p>";
   chatOptions.innerHTML = "";
   instructionDiv.innerHTML = "";
+  // remove expanded end-mode if present
+  chatWindow.classList.remove('end-mode');
   restartBtn.style.display = "block";
 };
 
@@ -181,6 +186,8 @@ restartBtn.onclick = () => {
   chatWindow.innerHTML = '';
   chatOptions.innerHTML = '';
   instructionDiv.innerHTML = '';
+  // remove expanded end-mode when restarting
+  chatWindow.classList.remove('end-mode');
   restartBtn.style.display = "none";
   showStep(currentStep);
 };
